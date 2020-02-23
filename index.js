@@ -20,7 +20,10 @@ app.use(function (req, res, next){
     next();
 }
 
-)
+);
+app.get('/', function(request, response){
+response.render('isp-bot/index');
+});
 app.post('/send-msg',(req,res)=>{
     runSample(req.body.MSG).then(data=>{
         res.send({Reply:data})
